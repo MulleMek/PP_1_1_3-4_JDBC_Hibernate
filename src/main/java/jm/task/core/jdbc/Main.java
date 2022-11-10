@@ -42,7 +42,7 @@ public class Main {
         userService.cleanUsersTable();
         userService.dropUsersTable();
 
-        userService.connectionClose();
+        userService.connectionClose(); //Закрытие Connection
 
     }
 }

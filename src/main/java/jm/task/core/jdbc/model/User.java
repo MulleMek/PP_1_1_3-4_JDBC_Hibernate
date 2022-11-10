@@ -67,7 +67,8 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "Id='" + id + '\'' +
+                ", name='" + name + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
                 '}';

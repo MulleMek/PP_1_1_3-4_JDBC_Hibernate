@@ -16,7 +16,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
     }
 
     public void connectionClose(){
-        try { connection.close(); } catch (Exception e) { /* Ignored */ }
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception e) {
+        }
     }
 
     public void createUsersTable() throws SQLException {
@@ -30,7 +35,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (statement != null) statement.close(); } catch (Exception e) {};
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -45,7 +55,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (statement != null) statement.close(); } catch (Exception e) {};
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -64,7 +79,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) {};
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -80,7 +100,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (preparedStatement != null) preparedStatement.close(); } catch (Exception e) {};
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 
@@ -91,10 +116,11 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         ResultSet resultSet = null;
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT name, lastName, age FROM User");
+            resultSet = statement.executeQuery("SELECT id, name, lastName, age FROM User");
 
             while (resultSet.next()) {
                 User user = new User();
+                user.setId(resultSet.getLong("id"));
                 user.setName(resultSet.getString("name"));
                 user.setLastName(resultSet.getString("lastName"));
                 user.setAge(resultSet.getByte("age"));
@@ -104,8 +130,15 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (statement != null) statement.close(); } catch (Exception e) {};
-            try { if (resultSet != null) resultSet.close(); } catch (Exception e) {};
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+            } catch (Exception e) {
+            }
         }
 
         return userList;
@@ -122,7 +155,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            try { if (statement != null) statement.close(); } catch (Exception e) {};
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+            } catch (Exception e) {
+            }
         }
     }
 }
