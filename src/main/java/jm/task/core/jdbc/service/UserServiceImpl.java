@@ -10,10 +10,6 @@ public class UserServiceImpl implements UserService {
 
     UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
 
-    public void connectionClose(){
-        userDaoJDBC.connectionClose();
-    }
-
     public void createUsersTable() throws SQLException {
         userDaoJDBC.createUsersTable();
     }

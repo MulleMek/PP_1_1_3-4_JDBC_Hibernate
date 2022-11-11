@@ -42,7 +42,5 @@ public class Main {
         userService.cleanUsersTable();
         userService.dropUsersTable();
 
-        userService.connectionClose(); //Закрытие Connection
-
     }
 }
