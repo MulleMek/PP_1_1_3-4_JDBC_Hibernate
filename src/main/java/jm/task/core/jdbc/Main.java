@@ -14,11 +14,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws SQLException {
-        //SessionFactory sessionFactory = Util.getSessionFactory();
-        //sessionFactory.close();
 
-        UserServiceImpl userService = new UserServiceImpl();
+    private final static UserService userService = new UserServiceImpl();
+    public static void main(String[] args) throws SQLException {
+
         userService.createUsersTable();
 
         List<User> users = Arrays.asList(

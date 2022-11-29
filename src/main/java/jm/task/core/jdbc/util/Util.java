@@ -13,8 +13,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class Util {
-    private static SessionFactory sessionFactory;
-    private static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/preproject?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true";
     private static final String DB_USER = "chesa";
     private static final String DB_PASSWORD = "pwd";
@@ -33,6 +31,8 @@ public class Util {
     }
 
     public static SessionFactory getSessionFactory() {
+        SessionFactory sessionFactory = null;
+
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
